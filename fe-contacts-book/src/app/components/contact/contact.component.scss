@@ -1,0 +1,21 @@
+.contacts {
+  button {
+    margin-right: 5px;
+    cursor: pointer;
+  }
+
+  &__new-entry {
+    padding-right: 15px;
+  }
+
+  &__popup {
+    button {
+      cursor: pointer;
+    }
+    
+    input {
+      display: block;
+      width: 100%;
+    }
+  }
+}

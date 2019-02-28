@@ -1,0 +1,10 @@
+INSERT INTO contacts(first_name, last_name, phone) VALUES ("Sandi", "Shoebrook", "194-67-6562");
+INSERT INTO contacts(first_name, last_name, phone) VALUES ("Irvine", "Thow", "175-64-9474");
+INSERT INTO contacts(first_name, last_name, phone) VALUES ("Kylie", "Petrecz", "191-36-3982");
+INSERT INTO contacts(first_name, last_name, phone) VALUES ("Libbie", "Peppin", "233-18-9919");
+INSERT INTO contacts(first_name, last_name, phone) VALUES ("Alisha", "Liver", "805-08-5518");
+INSERT INTO contacts(first_name, last_name, phone) VALUES ("Dotty", "Grigore", "848-17-9578");
+INSERT INTO contacts(first_name, last_name, phone) VALUES ("Marilin", "Soall", "771-65-4570");
+INSERT INTO contacts(first_name, last_name, phone) VALUES ("Abbott", "Garman", "510-16-2681");
+INSERT INTO contacts(first_name, last_name, phone) VALUES ("Melva", "Mathiassen", "489-56-4012");
+INSERT INTO contacts(first_name, last_name, phone) VALUES ("Lola", "Hellcat", "888-42-0720");

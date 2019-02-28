@@ -1,0 +1,92 @@
+<table class="table contacts">
+  <thead>
+    <tr>
+      <th scope="col">First</th>
+      <th scope="col">Last</th>
+      <th scope="col">Phone</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let contact of contacts">
+      <td>{{ contact.firstName }}</td>
+      <td>{{ contact.lastName }}</td>
+      <td>{{ contact.phone | mask: '(000) 000-0000' }}</td>
+      <th scope="row" class="text-right">
+        <button
+          class="btn btn-lg btn-outline-primary"
+          (click)="open(content, contact.id)"
+        >
+          edit
+        </button>
+        <button
+          class="btn btn-lg btn-outline-danger"
+          (click)="delete(contact.id)"
+        >
+          delete
+        </button>
+      </th>
+    </tr>
+  </tbody>
+</table>
+<hr />
+<p class="text-right contacts__new-entry">
+  <button
+    class="btn btn-lg btn-outline-success"
+    (click)="addEntry(content)"
+  >
+    add new antry
+  </button>
+</p>
+
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Contact</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="contacts__popup modal-body">
+    <form [formGroup]="form" (ngSubmit)="alert()">
+      <div class="row">
+        <div class="col-4">
+          <input
+            type="text"
+            name="firstName"
+            placeholder="First name"
+            formControlName="firstName"
+          />
+        </div>
+        <div class="col-4">
+            <input
+              type="text"
+              name="lastName"
+              placeholder="Last name"
+              formControlName="lastName"
+            />
+          </div>
+        <div class="col-4">
+            <input
+              type="text"
+              name="phone"
+              placeholder="Phone"
+              formControlName="phone"
+              mask="(000) 000-0000"
+            />
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button
+      type="button"
+      class="btn btn-outline-success" 
+      (click)="save()"
+      [disabled]="!isValid"
+    >
+      Save
+    </button>
+  </div>
+</ng-template>
+
