@@ -21,7 +21,7 @@ Run next command:
 
 and press `Ctr+Z`
 
-### 1) Update you username and password in properties file
+### 2) Update you username and password in properties file
 go to `src/main/resources/application.properties`
 and edit
 ```
