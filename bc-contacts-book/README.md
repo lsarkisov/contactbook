@@ -3,9 +3,7 @@
 </h1>
 
 
-## 🍔 Install project
-
-**Start runing project.**
+## 🍔 Story book project
 
 ### 1) Create database
 Fist of all you need create database in MySql
