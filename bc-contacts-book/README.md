@@ -1,9 +1,9 @@
 <h1 align="center">
-  React/Redux, Saga
+  Story book project
 </h1>
 
 
-## 🍔 Story book project
+## 🍔 Install project
 
 ### 1) Create database
 Fist of all you need create database in MySql
