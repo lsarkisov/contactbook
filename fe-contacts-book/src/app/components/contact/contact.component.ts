@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { DataService } from '../../services/data.service';
-import { filter } from 'rxjs/operators';
 
 class Entry {
   constructor(
