@@ -1,0 +1,48 @@
+<div class="modal fade contact__popup" id="contact-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalCenterTitle">Contact</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="form" (ngSubmit)="alert()">
+          <div class="row">
+            <div class="col-4">
+              <input
+                type="text"
+                name="firstName"
+                placeholder="First name"
+                formControlName="firstName"
+              />
+            </div>
+            <div class="col-4">
+                <input
+                  type="text"
+                  name="lastName"
+                  placeholder="Last name"
+                  formControlName="lastName"
+                />
+              </div>
+            <div class="col-4">
+                <input
+                  type="text"
+                  name="phone"
+                  placeholder="Phone"
+                  formControlName="phone"
+                  mask="(000) 000-0000"
+                />
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="onClose()">Close</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="save()">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+

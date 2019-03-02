@@ -10,18 +10,18 @@ export class DataService {
   constructor(private http: HttpClient) { }
 
   getAllContacts() {
-    return this.http.get(`${BASE_URL}/${API}/contacts/all`);
+    return this.http.request('get', `${BASE_URL}/${API}/contacts/all`);
   }
 
-  addContact(data) {
-    return this.http.post(`${BASE_URL}/${API}/contacts/add`, data);
+  addContact(body) {
+    return this.http.request('post', `${BASE_URL}/${API}/contacts/add`, { body });
   }
 
-  updateContact(data) {
-    return this.http.put(`${BASE_URL}/${API}/contacts/update`, data);
+  updateContact(body) {
+    return this.http.request('put', `${BASE_URL}/${API}/contacts/update`, { body });
   }
 
-  deleteContact(data) {
-    return this.http.delete(`${BASE_URL}/${API}/contacts/delete`, data);
+  deleteContact(body) {
+    return this.http.request('delete', `${BASE_URL}/${API}/contacts/delete`, { body });
   }
 }

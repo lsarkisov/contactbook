@@ -1,15 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { DataService } from '../../services/data.service';
-
-class Entry {
-  constructor(
-    public firstName: string,
-    public lastName: string,
-    public phone: string,
-  ) {}
-}
 
 @Component({
   selector: 'app-contact',
@@ -18,17 +9,10 @@ class Entry {
 })
 export class ContactComponent implements OnInit {
   private contacts: any;
-  private form: FormGroup = new FormGroup({
-    id: new FormControl('', Validators.required),
-    firstName: new FormControl('', Validators.required),
-    lastName: new FormControl('', Validators.required),
-    phone: new FormControl('', Validators.required),
-  });
   private selected: Object;
-  private isValid: boolean = true; //this.form.status === 'VALID';
+  private newContact: boolean;
 
   constructor(
-    private modalService: NgbModal,
     private data: DataService,
   ) { }
   
@@ -37,37 +21,29 @@ export class ContactComponent implements OnInit {
       .subscribe(ctx => this.contacts = ctx);
   }
   
-  open(content, id) {
-    console.log(content)
+  onOpen(id) {
     this.selected = this.contacts
       .filter(contact => contact.id === id)[0];
-    this.form.patchValue(this.selected);
-    this.modalService.open(content);
   }
-  
-  close() {
-    if (this.form.get('firstName').status) {
-      console.log('First name: ', this.form.get('firstName'))
+
+  onSave(contact) {
+    if (this.newContact) {
+      this.data.addContact(contact)
+        .subscribe(ctx => this.contacts = ctx);
+      this.newContact = false;
+    } else {
+      this.data.updateContact(contact)
+        .subscribe(ctx => this.contacts = ctx);
     }
-    setTimeout(() => this.form.reset(), 10);
-    this.modalService.dismissAll();
   }
 
-  save() {
-    if (this.isValid) {
-      console.log('VALID!!!!!', this.form.status)
-    }
-    console.log(this.form.get('firstName').value)
-    this.modalService.dismissAll();
+  onAddEntry(contact) {
+    this.newContact = true;
   }
 
-  addEntry(content) {
-    this.form.reset();
-    this.modalService.open(content);
-  }
-
-  delete(id) {
-    console.log(id)
+  delete(contact) {
+    this.data.deleteContact(contact)
+      .subscribe(ctx => this.contacts = ctx);
   }
 
 }
