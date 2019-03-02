@@ -1,6 +1,10 @@
 .contact__popup {
   button {
     cursor: pointer;
+
+    &:disabled {
+      cursor: not-allowed;
+    }
   }
   
   input {

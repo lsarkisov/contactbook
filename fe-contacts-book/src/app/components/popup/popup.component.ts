@@ -9,7 +9,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 export class PopupComponent implements OnChanges {
 
   @Input()
-  contact;
+  contact: Object;
   
   @Output()
   onSave = new EventEmitter<string>();
@@ -20,6 +20,10 @@ export class PopupComponent implements OnChanges {
     lastName : new FormControl('', Validators.required),
     phone    : new FormControl('', Validators.required),
   });
+
+  private isValid = () => {
+    return this.form.status === 'VALID';
+  }
 
   constructor() {}
 
